@@ -1,24 +1,45 @@
-# README
+# AccountManager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+	AccountManager is a POC for Managing Accounts and Internal transfers to and from a Fidor Account. 
 
-Things you may want to cover:
+# Rails version:
+		5.1.6
 
-* Ruby version
+# Ruby version: 
+		2.3.5
 
-* System dependencies
+# Setup
+	
+	- Mock Fidor API using stoplight and process HTTP requests
+	- using httparty gem
 
-* Configuration
+	- Implement Bootstrap v4 for simple UI design
 
-* Database creation
+	- bundle install
+	- Installs the gems in the Gemfile
 
-* Database initialization
+# Important gems/libraries installed:
 
-* How to run the test suite
+	- httparty
+		To process HTTP requests to 3rd Party API
 
-* Services (job queues, cache servers, search engines, etc.)
+	- bootstrap:
+		bootstrap for implementing UI design.
 
-* Deployment instructions
+# Deployment using Heroku:
 
-* ...
+		heroku login
+
+	- Install Heroku CLI
+
+	- Install Ruby > 2.3.5
+
+	- Replace 'sqlite3' gem with 'pg' gem
+
+	- bundle install
+
+	- heroku create account-manager-poc
+		Creates Heroku live application "https://account-manager-poc.herokuapp.com/"
+
+	- git push heroku master
+		Push git repository code to Heroku
