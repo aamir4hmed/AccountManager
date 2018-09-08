@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  root 'home#index', via: :get
 
   get "home/account_balance", to: 'home#account_balance', as: 'account_balance'
 
