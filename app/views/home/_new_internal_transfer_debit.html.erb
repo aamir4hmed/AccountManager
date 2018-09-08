@@ -1,0 +1,54 @@
+<div id ="show_data">
+  <div class="row">
+  	<div class="col">
+				<center><h3>New Internal Transfer</h3></center>
+		</div>
+	</div>
+  <div class="row">
+		<div class="col mr-auto text-muted">
+			<center>
+				Send Money to another Fidor Account by:
+		 	</center>
+		</div>
+	</div>	
+		<div class="row">
+				<div class="col text-muted d-flex justify-content-center">Nickname or E-Mail or Fidor ID
+				</div>
+		</div>
+		<br>
+	<% external_uid = p SecureRandom.hex(13) %>
+		<div class ="col-md-12 mr-auto">
+			<%= bootstrap_form_tag url: '/home/internal_transfer_debit',remote: true do |f| %>
+
+				<%= f.hidden_field :external_uid, value: external_uid %>
+			  <div class="row">
+					<div class="col">
+						<strong> 	
+			 		 		<%= f.text_field :receiver, value: 'Adam' %>
+			 		 	</strong>
+			  	</div>
+				</div>	
+				<div class="row">
+					<div class="col">	
+						<strong>   
+			  			<%= f.number_field :amount, value: '200' %>
+			  		</strong>
+			  	</div>
+			  </div>
+				<div class="row">
+					<div class="col">	 
+						<strong>   
+			  			<%= f.text_field :subject, value: 'Move Money out of Account' %>
+			  		</strong>
+			  	</div>
+			  </div>
+				<div class="row">
+					<div class="col">	 
+			  		<%= f.submit "Send Money Now", 'data-disable-with' => "Please wait....",remote: true, class: "btn btn-primary" %>
+			  	</div>
+			  </div>
+			<% end %>
+		</div>
+	</div>
+
+	
