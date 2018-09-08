@@ -1,0 +1,46 @@
+<div id ="show_data">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-start"><h3>Account Details</h3></div>
+          <%result= JSON.parse(@result.body)%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <strong>Nickname</strong>
+      </div>
+      <div class="col">
+        <%=result['customers']['nick']%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <strong>EmailID</strong>
+      </div>
+      <div class="col">
+        <%=result['customers']['email']%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <strong>Account number</strong>
+      </div>
+      <div class="col">
+        <%=result['account_number']%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <strong>Account balance</strong>
+      </div>
+      <div class="col">
+        <%unless defined?(@@amount)%>
+          <%=result['balance_available']%>&nbsp;<%=result['currency']%> 
+        <%else%>
+          <%=result['balance_available'].to_i - @@amount%>&nbsp;<%=result['currency']%> 
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
