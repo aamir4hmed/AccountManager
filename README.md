@@ -3,14 +3,16 @@
 	AccountManager is a POC for Managing Accounts and Internal transfers to and from a Fidor Account. 
 
 # Rails version:
-		5.1.6
+	
+	5.1.6
 
 # Ruby version: 
-		2.3.5
+	
+	2.3.5
 
 # Setup
 	
-	- Mock Fidor API using stoplight and process HTTP requests
+        - Mock Fidor API using stoplight and process HTTP requests
 	- using httparty gem
 
 	- Implement Bootstrap v4 for simple UI design
@@ -21,14 +23,14 @@
 # Important gems/libraries installed:
 
 	- httparty
-		To process HTTP requests to 3rd Party API
+	  To process HTTP requests to 3rd Party API
 
 	- bootstrap:
-		bootstrap for implementing UI design.
+	  bootstrap for implementing UI design.
 
 # Deployment using Heroku:
 
-		heroku login
+	- heroku login
 
 	- Install Heroku CLI
 
