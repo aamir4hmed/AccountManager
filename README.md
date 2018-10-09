@@ -41,7 +41,7 @@
 	- bundle install
 
 	- heroku create account-manager-poc
-		Creates Heroku live application "https://account-manager-poc.herokuapp.com/"
+	  Creates Heroku live application "https://account-manager-poc.herokuapp.com/"
 
 	- git push heroku master
-		Push git repository code to Heroku
+	  Push git repository code to Heroku
