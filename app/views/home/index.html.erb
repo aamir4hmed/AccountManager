@@ -24,7 +24,7 @@
 			    <%=link_to "Account Balance", "#pills-account", class: "nav-link active", id: "account_balance", data: {'toggle': 'pill', 'href': '#pills-account', 'role': 'tab', 'aria-controls': 'pills-account', 'aria-selected': 'true' }%>
 			  </li>
 			  <li class="nav-item">
-			    <%=link_to "Transfer money to Account", "#pills-credit", class: "nav-link", id: "internal_transfer_credit", data: {'toggle': 'pill', 'href': '#pills-credit', 'role': 'tab', 'aria-controls': 'pills-credit', 'aria-selected': 'false' }%>
+			    <%=link_to "Transfer money to Account", "#pills-credit", class: "nav-link", id: "internal_transfer_credit", data: {'toggle': 'pill', 'href': '#pills-credit', 'role': 'tab', 'aria-controls': 'pills-credit', 'aria-selected': 'false'}%>
 			  </li>
 			  <li class="nav-item">
 			    <%=link_to "Transfer money from Account ", "#pills-debit", class: "nav-link", id: "internal_transfer_debit", data: {'toggle': 'pill', 'href': '#pills-debit', 'role': 'tab', 'aria-controls': 'pills-debit', 'aria-selected': 'true' }%>
@@ -35,8 +35,8 @@
 					<div class="box border border-secondary">	
 			   		<div id ="show_data">					
 			    		<center>
-								<div id="page_loading">
-									Please wait ...
+			    		<%#= image_tag 'ajax-loader.gif' %>
+								<div id="page_loading">					
 									<div class="tab-content" id="pills-tabContent">
 	  								<div class="tab-pane fade show active" id="pills-account" role="tabpanel" aria-labelledby="account_balance">
 										</div>				
@@ -56,26 +56,36 @@
 </div> 
 
 <script text="javascript">
- $(function() {
-    $.ajax({
-  url: "/home/account_balance"
-		});
-  });
+
+$( document ).ready(function() {
+	$('#show_data').html("<center><%= escape_javascript(image_tag 'ajax-loader.gif') %><center>");
+  $.ajax({
+  				url: "/home/account_balance"
+				});
+});
 
 $( "#account_balance" ).click(function() {
-      $.ajax({
-  url: "/home/account_balance"
-		});
+	$('#show_data').html("<center><%= escape_javascript(image_tag 'ajax-loader.gif') %><center>");
+	$.ajax({
+	  			type : 'get',
+    			url: '/home/account_balance'
+  			 });
 });
 $( "#internal_transfer_credit" ).click(function() {
-      $.ajax({
-  url: "/home/new_internal_transfer_credit"
-		});
+	$('#show_data').html("<center><%= escape_javascript(image_tag 'ajax-loader.gif') %><center>");
+
+  $.ajax({
+    			type : 'get',
+					url: "/home/new_internal_transfer_credit"
+	});
 });
+
 $( "#internal_transfer_debit" ).click(function() {
-      $.ajax({
-  url: "/home/new_internal_transfer_debit"
-		});
+	$('#show_data').html("<center><%= escape_javascript(image_tag 'ajax-loader.gif') %><center>");
+  $.ajax({
+  				type : 'get',
+  				url: "/home/new_internal_transfer_debit"
+				});
 });
 
 </script>

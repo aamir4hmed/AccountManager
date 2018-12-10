@@ -23,24 +23,24 @@
 				<%= f.hidden_field :external_uid, value: external_uid %>
 			  <div class="row">
 					<div class="col">
-			 		 <strong> <%= f.text_field :receiver, value: 'aahmed.asm@fidor.de' %></strong>
+			 		 <strong> <%= f.text_field :receiver, value: 'aahmed.asm@gmail.com', disabled: true %></strong>
 			  	</div>
 				</div>	
 				<div class="row">
 					<div class="col">	
 					<strong>   
-			  		<%= f.number_field :amount, value: '200' %>
+			  		<%= f.number_field :amount, value: '200', disabled: true %>
 			  	</strong>
 			  	</div>
 			  </div>
 				<div class="row">
 					<div class="col">	  
-			  		<strong> <%= f.text_field :subject, value: 'Transfer Money in Account' %></strong>
+			  		<strong> <%= f.text_field :subject, value: 'Transfer Money in Account', disabled: true %></strong>
 			  	</div>
 			  </div>
 				<div class="row">
 					<div class="col">	 
-			  		<%= f.submit "Send Money Now", 'data-disable-with' => "Please wait....",remote: true, class: "btn btn-primary"  %>
+			  		<%= f.submit "Send Money Now", 'data-disable-with' => "Amount Transferring....",remote: true, class: "btn btn-primary"  %>
 			  	</div>
 			  </div>
 			<% end %>
